@@ -22,6 +22,8 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
+DEVICE_PATH := device/motorola/nora
+
 # Platform
 TARGET_BOARD_PLATFORM := msm8937
 TARGET_NO_BOOTLOADER := true
@@ -46,13 +48,11 @@ TARGET_HW_DISK_ENCRYPTION := true
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlycon=msm_hsl_uart,0x78B0000 vmalloc=400M buildvariant=user androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-BOARD_RAMDISK_OFFSET := 0x01000000
-TARGET_PREBUILT_KERNEL := device/motorola/nora/prebuilt/Image.gz
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/motorola/nora/prebuilt/dtb.img
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(DEVICE_PATH)/dt.img
 
 # Partitions
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16879616
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # Filesystem
