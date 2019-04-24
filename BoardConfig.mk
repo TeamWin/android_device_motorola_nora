@@ -63,6 +63,5 @@ TW_INCLUDE_CRYPTO := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_EXCLUDE_SUPERSU := true
 TW_EXCLUDE_TWRPAPP := true
-TW_SCREEN_BLANK_ON_BOOT := true
 TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager servicemanager qseecomd keymaster-3-0
 
