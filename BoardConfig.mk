@@ -72,3 +72,4 @@ TW_DEVICE_VERSION := $(shell date -u +"%Y%m%d")
 TW_INCLUDE_CRYPTO := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_EXCLUDE_TWRPAPP := true
+TW_USE_TOOLBOX := true
