@@ -35,6 +35,13 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
 
+# Crypto
+TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
+TARGET_HW_DISK_ENCRYPTION := true
+
+# Keystore
+TARGET_PROVIDES_KEYMASTER := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlycon=msm_hsl_uart,0x78B0000 vmalloc=400M buildvariant=user androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
@@ -57,11 +64,11 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1440
 
+# Encryption
+PLATFORM_SECURITY_PATCH := 2029-10-01
+
 # TWRP
 TW_DEVICE_VERSION := $(shell date -u +"%Y%m%d")
-TW_INCLUDE_CRYPTO := true
+# TW_INCLUDE_CRYPTO := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_EXCLUDE_SUPERSU := true
 TW_EXCLUDE_TWRPAPP := true
-TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager servicemanager qseecomd keymaster-3-0
-
